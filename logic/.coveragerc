@@ -1,0 +1,3 @@
+[run]
+source = logic
+omit = logic/test*

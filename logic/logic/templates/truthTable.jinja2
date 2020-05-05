@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="{{request.locale_name}}">
+  <head>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+      <script src="{{request.static_url('logic:static/truth_table.js')}}"></script>
+      <style>
+          #formula{
+            background:#fafaaf;
+            height:40px;
+            border: solid thin black;
+            text-align:center;
+            width: 600px;
+            margin:0 auto;
+            line-height:40px;
+            letter-spacing: 3px;
+          }
+          #formulaEntry{
+            text-align:center;
+            margin-top:10px;
+          }
+          #truthTable{
+            text-align:center;
+            margin-top: 10px;
+          }
+          #truthTable table {
+            border-collapse: collapse;
+          }
+          #truthTable table, th, td {
+            border: 1px solid black;
+            margin: 0 auto;
+          }
+          #title{
+            text-align:center;
+            margin-bottom:14px;
+            font-size:30px;
+
+          }
+      </style>
+  </head>
+
+  <body>
+    <div id="title">Propositional Calculus Truth Table Calculator</div>
+    <div id="formula" ></div>
+    <div id="formulaEntry">
+        <input id="varName" type="text" placeholder="variable name"/><button onclick="addToFormula(document.getElementById('varName').value)">Variable Insert</button>
+        <button onclick="addToFormula('¬')">¬</button>
+        <button onclick="addToFormula('∧')">∧</button>
+        <button onclick="addToFormula('∨')">∨</button>
+        <button onclick="addToFormula('→')">→</button>
+        <button onclick="addToFormula('(')">(</button>
+        <button onclick="addToFormula(')')">)</button> <br/><br/>
+        <button id="deleteBttn" onclick="deleteLast()">Delete Last</button>
+    </div>
+    <div id="truthTable">Enter a formula above to generate its truth table.</div>
+  </body>
+</html>
