@@ -4,6 +4,9 @@
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
       <script src="{{request.static_url('logic:static/truth_table.js')}}"></script>
       <style>
+          body{
+            background:#c4c2c2;
+          }
           #formula{
             background:#fafaaf;
             height:40px;
@@ -11,8 +14,8 @@
             text-align:center;
             width: 600px;
             margin:0 auto;
-            line-height:40px;
             letter-spacing: 3px;
+            line-height:40px;
           }
           #formulaEntry{
             text-align:center;
@@ -26,31 +29,68 @@
             border-collapse: collapse;
           }
           #truthTable table, th, td {
-            border: 1px solid black;
+            border: 2px solid black;
             margin: 0 auto;
+            padding:5px;
           }
           #title{
             text-align:center;
             margin-bottom:14px;
             font-size:30px;
-
+          }
+          #title h2{
+            margin-bottom:-30px;
+            margin-top:10px;
+          }
+          #variableGroup{
+            background: black;
+            display:inline-block;
+            padding:10px;
+          }
+          #opGroup{
+            background: white;
+            display:inline-block;
+            padding:10px;
+          }
+          #parenGroup{
+            background: grey;
+            display:inline-block;
+            padding:10px;
+          }
+          #delLastGroup{
+            margin-top:10px;
           }
       </style>
   </head>
 
   <body>
-    <div id="title">Propositional Calculus Truth Table Calculator</div>
+  <div id="title"><h2>Propositional Calculus</h2><br/>Truth Table Calculator</div>
     <div id="formula" ></div>
     <div id="formulaEntry">
-        <input id="varName" type="text" placeholder="variable name"/><button onclick="addToFormula(document.getElementById('varName').value)">Variable Insert</button>
-        <button onclick="addToFormula('¬')">¬</button>
-        <button onclick="addToFormula('∧')">∧</button>
-        <button onclick="addToFormula('∨')">∨</button>
-        <button onclick="addToFormula('→')">→</button>
-        <button onclick="addToFormula('(')">(</button>
-        <button onclick="addToFormula(')')">)</button> <br/><br/>
-        <button id="deleteBttn" onclick="deleteLast()">Delete Last</button>
+        <div id="variableGroup">
+            <button onclick="addToFormula('P')">P</button>
+            <button onclick="addToFormula('Q')">Q</button>
+            <button onclick="addToFormula('R')">R</button>
+            <button onclick="addToFormula('S')">S</button>
+            <button onclick="addToFormula('T')">T</button>
+            <button onclick="addToFormula('U')">U</button>
+        </div>
+        <div id="opGroup">
+            <button onclick="addToFormula('¬')">¬</button>
+            <button onclick="addToFormula('∧')">∧</button>
+            <button onclick="addToFormula('∨')">∨</button>
+            <button onclick="addToFormula('→')">→</button>
+        </div>
+        <div id="parenGroup">
+            <button onclick="addToFormula('(')">(</button>
+            <button onclick="addToFormula(')')">)</button>
+        </div>
+        <br/>
+        <div id="delLastGroup">
+            <button onclick="deleteLast()">Delete Last</button>
+        </div>
     </div>
+
     <div id="truthTable">Enter a formula above to generate its truth table.</div>
   </body>
 </html>
